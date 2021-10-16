@@ -1,12 +1,14 @@
 from PyQt5 import QtCore
 from lib.window import ShopWindow
+import yaml
 
 import pytest
 
 
 @pytest.fixture
 def data():
-    return {1: 100}
+    with open('data/data.yml', 'r', encoding='utf-8') as file:
+        return yaml.safe_load(file)
 
 
 def test_buttons_start(qtbot, data):
@@ -18,4 +20,4 @@ def test_buttons_start(qtbot, data):
     qtbot.mouseClick(window.button, QtCore.Qt.LeftButton)
     qtbot.mouseClick(window.button, QtCore.Qt.LeftButton)
 
-    assert 98 == data[1]
+    assert 8 == data[1]
