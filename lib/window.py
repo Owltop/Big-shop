@@ -7,8 +7,8 @@ class ShopWindow(QMainWindow):
 
     def __init__(self, data=None):
         super().__init__()
-
-        self.setWindowTitle('Ozon')
+        self.name_of_window = 'Ozon'
+        self.setWindowTitle(self.name_of_window)
 
         self.button_1 = QPushButton('Морковь', self)
         self.button_2 = QPushButton('Квартира в Медвеково', self)
@@ -49,40 +49,57 @@ class ShopWindow(QMainWindow):
         self.button_5.clicked.connect(self.on_click_5)
         self.resize(1000, 300)
 
+        # print(self.findChildren(QPushButton))
+
     def on_click_1(self):
-        name = 'Морковь' # я пытался не копировать код и передавать name при вызове функции но что-то пошло не так
-        self.data[name] -= 1
-        self.label.setText('Бронирование товаров в магазине\n {}'.format(self.data))
-        if self.data[name] <= 0:
+        name = 'Морковь'  # я пытался не копировать код и передавать name при вызове функции но что-то пошло не так
+        if self.data[name] == 1:
             self.button_1.deleteLater()
+            self.data[name] -= 1
+        elif self.data[name] > 1:
+            self.data[name] -= 1
+        self.label.setText('Бронирование товаров в магазине\n {}'.format(self.data))
 
     def on_click_2(self):
         name = 'Квартира в Медведково'
-        self.data[name] -= 1
-        self.label.setText('Бронирование товаров в магазине\n {}'.format(self.data))
-        if self.data[name] <= 0:
+        if self.data[name] == 1:
             self.button_2.deleteLater()
+            self.data[name] -= 1
+        elif self.data[name] > 1:
+            self.data[name] -= 1
+        self.label.setText('Бронирование товаров в магазине\n {}'.format(self.data))
 
     def on_click_3(self):
         name = 'Кухонная плита'
-        self.data[name] -= 1
-        self.label.setText('Бронирование товаров в магазине\n {}'.format(self.data))
-        if self.data[name] <= 0:
+        if self.data[name] == 1:
             self.button_3.deleteLater()
+            self.data[name] -= 1
+        elif self.data[name] > 1:
+            self.data[name] -= 1
+        self.label.setText('Бронирование товаров в магазине\n {}'.format(self.data))
 
     def on_click_4(self):
         name = 'Стул'
-        self.data[name] -= 1
-        self.label.setText('Бронирование товаров в магазине\n {}'.format(self.data))
-        if self.data[name] <= 0:
+        if self.data[name] == 1:
             self.button_4.deleteLater()
+            self.data[name] -= 1
+        elif self.data[name] > 1:
+            self.data[name] -= 1
+        self.label.setText('Бронирование товаров в магазине\n {}'.format(self.data))
 
     def on_click_5(self):
         name = 'Яхта Абрамовича'
-        self.data[name] -= 1
-        self.label.setText('Бронирование товаров в магазине\n {}'.format(self.data))
-        if self.data[name] <= 0:
+        if self.data[name] == 1:
             self.button_5.deleteLater()
+            self.data[name] -= 1
+        elif self.data[name] > 1:
+            self.data[name] -= 1
+        self.label.setText('Бронирование товаров в магазине\n {}'.format(self.data))
+
+        '''if self.data[name] <= 0:
+            self.button_5.deleteLater()
+            # self.button_5.close()
+            # print(self.button_5.isVisible())'''
 
     '''def on_click(self, button):
         # requests.post('http://127.0.0.1:8080/api/reserve')

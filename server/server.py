@@ -1,9 +1,11 @@
+'''СЕРВЕР НЕ ДЕЛАЛ, ТУТ КОПИЯ ВАШЕГО КОДА'''
+
 from flask import Flask, make_response, request
 
 app = Flask(__name__)
 
 # это должно быть в конфигурационном файле
-data = {1: 100, 2:200}
+data = {1: 100, 2: 200}
 users = {}
 
 
